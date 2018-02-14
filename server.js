@@ -30,8 +30,11 @@ let regex = /([^a-zA-Z]+)([a-zA-Z]+)/g;
 let result=null;
 var match = regex.exec(val);
 
+if (!units.hasOwnProperty(match[2])&& !typeof(eval(match[1]))!=="number") {
+   result=""
+}
   
-return({"initNum":match[1],initUnit:match[2],result:result});
+return({"initNum":eval(match[1]),initUnit:match[2],result:result});
   
 }
 
@@ -68,8 +71,7 @@ console.log(units);
     outUnit="mi"
     break;
   }
-  console.log(units.outUnit);
-  return({"initNum":input.initNum,initUnit:input.initUnit,returnNum:outVal,returnUnit:outUnit,string:inVal+" "+units[inUnit]+" converts to "+outVal+" "+units[outUnit],result:result});
+  return({"initNum":input.initNum,initUnit:input.initUnit,returnNum:outVal,returnUnit:outUnit,string:inVal+" "+units[inUnit]+" converts to "+outVal+" "+units[outUnit]});
 }
 
 // listen for requests :)
