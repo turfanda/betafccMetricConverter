@@ -34,7 +34,9 @@ return({"initNum":match[1],initUnit:match[2]});
 
 const parseOutput = function(input) {
 
-consol
+console.log(input.initNum);
+console.log(input.initUnit);
+
   
 }
 
