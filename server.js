@@ -18,7 +18,7 @@ res.sendFile(process.cwd()+"/views/index.html");
 app.get("/api/convert",function(req,res){
 
   let input = parseUnit(req.query.input)
-  let output = calcOutput(input);
+  res.json(calcOutput(input));
 
 });
 
@@ -33,12 +33,18 @@ return({"initNum":match[1],initUnit:match[2]});
 }
 
 const calcOutput = function(input) {
+  console.log(input);
 let inVal = input.initNum;
-let inUnit = input.initNum.toLowerCase();
+   console.log(inVal);
+let inUnit = input.initUnit.toLowerCase();
+  console.log(inUnit);
 let outVal,outUnit;
+let units={"kg":"kilograms","lbs":"pound","gal":"galons","l":"liters","mi":"miles","km":"kilometers"}
+console.log(units);
   switch(inUnit){
     case "kg":
     outVal=inVal/ 0.453592;
+    console.log(outVal);
     outUnit="lbs"
     break;
     case "lbs":
@@ -62,7 +68,7 @@ let outVal,outUnit;
     outUnit="mi"
     break;
   }
-  
+  return({"initNum":input.initNum,initUnit:input.initUnit,returnNum:outVal,returnUnit:outUnit,string:inVal+" "+units.in+" converts to "+outVal+" "+units.outVal});
 }
 
 // listen for requests :)
