@@ -5,8 +5,6 @@
 var express = require('express');
 var helmet = require("helmet");
 var app = express();
-var job = require("./job/convert");
-
 
 app.use(express.static('public'));
 app.use(helmet());
@@ -19,7 +17,15 @@ res.sendFile(process.cwd()+"/views/index.html");
 
 app.get("/api/convert",function(req,res){
 
+  let input = parseUnit(req.query.input)
+  
+
 });
+
+var parseUnit = function(val){
+
+  
+}
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
