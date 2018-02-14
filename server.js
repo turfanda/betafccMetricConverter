@@ -28,7 +28,6 @@ app.get("/api/convert", function(req, res) {
         res.send(input.result)
     } else
         res.json(calcOutput(input));
-
 });
 
 const parseUnit = function(val) {
