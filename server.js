@@ -11,6 +11,8 @@ app.use(helmet());
 app.use(helmet.noSniff());
 app.use(helmet.xssFilter());
 
+let units={"kg":"kilograms","lbs":"pound","gal":"galons","l":"liters","mi":"miles","km":"kilometers"};
+
 app.get('/',function(req,res){
 res.sendFile(process.cwd()+"/views/index.html");
 });
@@ -25,21 +27,19 @@ app.get("/api/convert",function(req,res){
 const parseUnit = function(val){
   
 let regex = /([^a-zA-Z]+)([a-zA-Z]+)/g;
-
+let result=null;
 var match = regex.exec(val);
+
   
-return({"initNum":match[1],initUnit:match[2]});
+return({"initNum":match[1],initUnit:match[2],result:result});
   
 }
 
 const calcOutput = function(input) {
-  console.log(input);
 let inVal = input.initNum;
-   console.log(inVal);
 let inUnit = input.initUnit.toLowerCase();
-  console.log(inUnit);
 let outVal,outUnit;
-let units={"kg":"kilograms","lbs":"pound","gal":"galons","l":"liters","mi":"miles","km":"kilometers"}
+
 console.log(units);
   switch(inUnit){
     case "kg":
@@ -68,7 +68,8 @@ console.log(units);
     outUnit="mi"
     break;
   }
-  return({"initNum":input.initNum,initUnit:input.initUnit,returnNum:outVal,returnUnit:outUnit,string:inVal+" "+units.in+" converts to "+outVal+" "+units.outVal});
+  console.log(units.outUnit);
+  return({"initNum":input.initNum,initUnit:input.initUnit,returnNum:outVal,returnUnit:outUnit,string:inVal+" "+units[inUnit]+" converts to "+outVal+" "+units[outUnit],result:result});
 }
 
 // listen for requests :)
