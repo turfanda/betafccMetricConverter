@@ -18,12 +18,23 @@ res.sendFile(process.cwd()+"/views/index.html");
 app.get("/api/convert",function(req,res){
 
   let input = parseUnit(req.query.input)
-  
+  let output = parseOutput(input);
 
 });
 
-var parseUnit = function(val){
+const parseUnit = function(val){
+  
+let regex = /([^a-zA-Z]+)([a-zA-Z]+)/g;
 
+var match = regex.exec(val);
+  
+return({"initNum":match[1],initUnit:match[2]});
+  
+}
+
+const parseOutput = function(input) {
+
+consol
   
 }
 
