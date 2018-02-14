@@ -20,21 +20,35 @@ res.sendFile(process.cwd()+"/views/index.html");
 app.get("/api/convert",function(req,res){
 
   let input = parseUnit(req.query.input)
+  if(input.result!==null){
+  res.send(input.result)
+  }
+  else
   res.json(calcOutput(input));
 
 });
 
 const parseUnit = function(val){
   
-let regex = /([^a-zA-Z]+)([a-zA-Z]+)/g;
+let regex = /([^a-zA-Z]+)?([a-zA-Z]+)/g;
 let result=null;
 var match = regex.exec(val);
+let input{
 
-if (!units.hasOwnProperty(match[2])&& !typeof(eval(match[1]))!=="number") {
-   result=""
-}
+  if (!units.hasOwnProperty(match[2])&& !typeof(eval(match[1]))!=="number") 
+   result="invalid number and unit"
+  else if(!units.hasOwnProperty(match[2]))
+    result="invalid unit"
+    else if(typeof(eval(match[1]))!=="number"){
+      console.log(match[1]);
+      result="invalid number"
+      console.log(typeof(eval(match[1])));
+    }
+    
   
 return({"initNum":eval(match[1]),initUnit:match[2],result:result});
+
+
   
 }
 
