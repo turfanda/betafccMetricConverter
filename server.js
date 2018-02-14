@@ -5,6 +5,7 @@
 var express = require('express');
 var helmet = require("helmet");
 var app = express();
+var job = require("./job/convert");
 
 
 app.use(express.static('public'));
@@ -13,11 +14,11 @@ app.use(helmet.noSniff());
 app.use(helmet.xssFilter());
 
 app.get('/',function(req,res){
-res.sendFile(process.cwd()+"views/index.html");
+res.sendFile(process.cwd()+"/views/index.html");
 });
 
-app.get('/api/convert/:data',function(req,res){
-console.log(req.body.data);
+app.get("/api/convert",function(req,res){
+
 });
 
 // listen for requests :)
