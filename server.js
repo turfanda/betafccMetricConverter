@@ -33,23 +33,23 @@ const parseUnit = function(val){
 let regex = /([^a-zA-Z]+)?([a-zA-Z]+)/g;
 let result=null;
 var match = regex.exec(val);
-let input{
-
+let input ={"initNum":null,initUnit:null,result:result}
+console.log(typeof(eval(match[1])));
   if (!units.hasOwnProperty(match[2])&& !typeof(eval(match[1]))!=="number") 
-   result="invalid number and unit"
+   result="invalid number and unit";
   else if(!units.hasOwnProperty(match[2]))
-    result="invalid unit"
+    result="invalid unit";
     else if(typeof(eval(match[1]))!=="number"){
-      console.log(match[1]);
-      result="invalid number"
-      console.log(typeof(eval(match[1])));
+      if(match[1]===undefined)
+        input.initNum=1;
+      else
+      result="invalid number";
     }
-    
-  
-return({"initNum":eval(match[1]),initUnit:match[2],result:result});
-
-
-  
+  input.initUnit=match[2];
+  input.result=result;
+  if(input.initNum===null)
+    input.iniNum=eval(match[1]);
+return(input);
 }
 
 const calcOutput = function(input) {
