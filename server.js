@@ -18,7 +18,7 @@ res.sendFile(process.cwd()+"/views/index.html");
 app.get("/api/convert",function(req,res){
 
   let input = parseUnit(req.query.input)
-  let output = parseOutput(input);
+  let output = calcOutput(input);
 
 });
 
@@ -32,11 +32,36 @@ return({"initNum":match[1],initUnit:match[2]});
   
 }
 
-const parseOutput = function(input) {
-
-console.log(input.initNum);
-console.log(input.initUnit);
-
+const calcOutput = function(input) {
+let inVal = input.initNum;
+let inUnit = input.initNum.toLowerCase();
+let outVal,outUnit;
+  switch(inUnit){
+    case "kg":
+    outVal=inVal/ 0.453592;
+    outUnit="lbs"
+    break;
+    case "lbs":
+    outVal=inVal*0.453592;
+    outUnit="kg"
+    break;
+    case "gal":
+    outVal=inVal*3.78541;
+    outUnit="L"
+    break;
+    case "L":
+    outVal=inVal/3.78541;
+    outUnit="gal"
+    break;
+    case "mi":
+    outVal=inVal*1.60934;
+    outUnit="km"
+    break;
+    case "km":
+    outVal=inVal/1.60934;
+    outUnit="mi"
+    break;
+  }
   
 }
 
