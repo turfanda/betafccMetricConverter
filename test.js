@@ -8,19 +8,21 @@ let server = require("./server");
 
 describe('Unit Test', function() {
   describe('Parse Input', function() {
-      describe('', function() {
-      assert.deepEqual(server.parseUnit('1gal'), {value: 1, type: 'gal'});
-      assert.deepEqual(server.parseUnit('1lbs'), {value: 1, type: 'lbs'});
-      assert.deepEqual(server.parseUnit('1mi'),  {value: 1, type: 'mi'});
-      assert.deepEqual(server.parseUnit('1l'),   {value: 1, type: 'l'});
-      assert.deepEqual(server.parseUnit('1kg'),  {value: 1, type: 'kg'});
-      assert.deepEqual(server.parseUnit('1km'),  {value: 1, type: 'km'});
-      assert.deepEqual(server.parseUnit('1.5gal'), {value: 1.5, type: 'gal'});
-      assert.deepEqual(server.parseUnit('1.5lbs'), {value: 1.5, type: 'lbs'});
-      assert.deepEqual(server.parseUnit('1.5mi'),  {value: 1.5, type: 'mi'});
-      assert.deepEqual(server.parseUnit('1.5l'),   {value: 1.5, type: 'l'});
-      assert.deepEqual(server.parseUnit('1.5kg'),  {value: 1.5, type: 'kg'});
-      assert.deepEqual(server.parseUnit('1.5km'),  {value: 1.5, type: 'km'});
+      it('should Pass', function() {
+      assert.deepEqual(server.parseUnit('gal'), {initNum: 1, initUnit: 'gal',result:null});
+      assert.deepEqual(server.parseUnit('lbs'), {initNum: 1, initUnit: 'lbs',result:null});
+      assert.deepEqual(server.parseUnit('mi'),  {initNum: 1, initUnit: 'mi',result:null});
+      assert.deepEqual(server.parseUnit('l'),   {initNum: 1, initUnit: 'l',result:null});
+      assert.deepEqual(server.parseUnit('kg'),  {initNum: 1, initUnit: 'kg',result:null});
+      assert.deepEqual(server.parseUnit('km'),  {initNum: 1, initUnit: 'km',result:null});
+      assert.deepEqual(server.parseUnit('1.5gal'), {initNum: 1.5, initUnit: 'gal',result:null});
+      assert.deepEqual(server.parseUnit('1.5lbs'), {initNum: 1.5, initUnit: 'lbs',result:null});
+      assert.deepEqual(server.parseUnit('1.5mi'),  {initNum: 1.5, initUnit: 'mi',result:null});
+      assert.deepEqual(server.parseUnit('1.5l'),   {initNum: 1.5, initUnit: 'l',result:null});
+      assert.deepEqual(server.parseUnit('1.5kg'),  {initNum: 1.5, initUnit: 'kg',result:null});
+      assert.deepEqual(server.parseUnit('1.5km'),  {initNum: 1.5, initUnit: 'km',result:null});
+      assert.deepEqual(server.parseUnit('5/2kg'),  {initNum: 2.5, initUnit: 'kg',result:null});
+      assert.deepEqual(server.parseUnit('6/3km'),  {initNum: 2, initUnit: 'km',result:null});
       });
     });
   });
