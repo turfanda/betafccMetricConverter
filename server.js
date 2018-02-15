@@ -18,7 +18,7 @@ let units = {
 };
 
 app.get('/', function(req, res) {
-    res.sendFile(process.cwd() + "/views/index.html");
+    res.sendFile(process.cwd() + "/index.html");
 });
 
 app.get("/api/convert", function(req, res) {
@@ -101,7 +101,7 @@ const calcOutput = function(input) {
     });
 }
 
-// listen for requests :)
+
 var listener = app.listen(process.env.PORT, function() {
     console.log('Your app is listening on port ' + listener.address().port);
 });
