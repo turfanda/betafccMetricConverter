@@ -95,9 +95,9 @@ const calcOutput = function(input) {
     return ({
         "initNum": input.initNum,
         initUnit: input.initUnit,
-        returnNum: outVal,
+        returnNum: Number(outVal.toFixed(5)),
         returnUnit: outUnit,
-        string: inVal + " " + units[inUnit] + " converts to " + outVal + " " + units[outUnit]
+        string: inVal + " " + units[inUnit] + " converts to " + outVal.toFixed(5) + " " + units[outUnit]
     });
 }
 
