@@ -99,10 +99,13 @@ const calcOutput = function(input) {
     });
 }
 
-
+if(!module.parent) {
 var listener = app.listen(process.env.PORT, function() {
     console.log('Your app is listening on port ' + listener.address().port);
 });
+}
+
+
 
 module.exports.parseUnit = parseUnit;
 module.exports.calcOutput = calcOutput;

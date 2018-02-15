@@ -6,10 +6,10 @@ const describe = mocha.describe
 const it = mocha.it
 let server = require("./server");
 
-describe('Unit Test', function() {
+describe('Tests', function() {
 
-  describe('Parse Input', function() {
-      it('should Parse', function(done) {
+  describe('Unit Test', function() {
+      it('should Pars', function(done) {
       assert.deepEqual(server.parseUnit('gal'), {initNum: 1, initUnit: 'gal',result:null});
       assert.deepEqual(server.parseUnit('lbs'), {initNum: 1, initUnit: 'lbs',result:null});
       assert.deepEqual(server.parseUnit('mi'),  {initNum: 1, initUnit: 'mi',result:null});
@@ -24,9 +24,10 @@ describe('Unit Test', function() {
       assert.deepEqual(server.parseUnit('1.5km'),  {initNum: 1.5, initUnit: 'km',result:null});
       assert.deepEqual(server.parseUnit('5/2kg'),  {initNum: 2.5, initUnit: 'kg',result:null});
       assert.deepEqual(server.parseUnit('6/3km'),  {initNum: 2, initUnit: 'km',result:null});
-      server.listener.close();
         done();
       });
+    });
+    describe('Parse Input', function() {
           it('should Pass', function(done) {
       assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'gal',result:null}),    {initNum: 1,   initUnit: 'gal',returnNum:3.78541, returnUnit:"L"  ,string:"1 galons converts to 3.78541 liters"});
       assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'lbs',result:null}),    {initNum: 1,   initUnit: 'lbs',returnNum:0.45359, returnUnit:"kg" ,string:"1 pounds converts to 0.45359 kilograms"});
@@ -37,9 +38,10 @@ describe('Unit Test', function() {
       assert.deepEqual(server.calcOutput({initNum: 1.5, initUnit: 'gal',result:null}), {initNum: 1.5, initUnit: 'gal',returnNum:5.67812, returnUnit:"L"   ,string:"1.5 galons converts to 5.67812 liters"});
       assert.deepEqual(server.calcOutput( {initNum: 2.5, initUnit: 'kg',result:null}),  {initNum: 2.5, initUnit: 'kg' ,returnNum:5.51156, returnUnit:"lbs",string:"2.5 kilograms converts to 5.51156 pounds"});
       assert.deepEqual(server.calcOutput({initNum: 2, initUnit: 'km',result:null}),  {initNum: 2,   initUnit: 'km' ,returnNum:1.24275, returnUnit:"mi"    ,string:"2 kilometers converts to 1.24275 miles"});
-               server.listener.close();   
-
         done();
       });
+      });
     });
-  });
+
+
+
