@@ -10,9 +10,10 @@ app.use(helmet.xssFilter());
 
 let units = {
     "kg": "kilograms",
-    "lbs": "pound",
+    "lbs": "pounds",
     "gal": "galons",
     "l": "liters",
+  "L": "liters",
     "mi": "miles",
     "km": "kilometers"
 };

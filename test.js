@@ -26,15 +26,15 @@ describe('Unit Test', function() {
         done();
       });
           it('should Pass', function(done) {
-      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'gal',result:null}),    {initNum: 1,   initUnit: 'gal',outNum:3.78541, outUnit:"L"});
-      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'lbs',result:null}),    {initNum: 1,   initUnit: 'lbs',outNum:0.45359, outUnit:"kg"});
-      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'mi',result:null}),     {initNum: 1,   initUnit: 'mi' ,outNum:1.60934, outUnit:"km"});
-      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'l',result:null}),      {initNum: 1,   initUnit: 'l'  ,outNum:0.26417, outUnit:"gal"});
-      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'kg',result:null}),     {initNum: 1,   initUnit: 'kg' ,outNum:2.20462, outUnit:"lbs"});
-      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'km',result:null}),     {initNum: 1,   initUnit: 'km' ,outNum:0.62137, outUnit:"mi"});
-      assert.deepEqual(server.calcOutput({initNum: 1.5, initUnit: 'gal',result:null}), {initNum: 1.5, initUnit: 'gal',outNum:5.67812, outUnit:"L"});
-      assert.deepEqual(server.calcOutput( {initNum: 2.5, initUnit: 'kg',result:null}),  {initNum: 2.5, initUnit: 'kg' ,outNum:5.51156, outUnit:"lbs"});
-      assert.deepEqual(server.calcOutput({initNum: 2, initUnit: 'km',result:null}),  {initNum: 2,   initUnit: 'km' ,outNum:1.24275, outUnit:"mi"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'gal',result:null}),    {initNum: 1,   initUnit: 'gal',returnNum:3.78541, returnUnit:"L"  ,string:"1 galons converts to 3.78541 liters"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'lbs',result:null}),    {initNum: 1,   initUnit: 'lbs',returnNum:0.45359, returnUnit:"kg" ,string:"1 pounds converts to 0.45359 kilograms"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'mi',result:null}),     {initNum: 1,   initUnit: 'mi' ,returnNum:1.60934, returnUnit:"km" ,string:"1 miles converts to 1.60934 kilometers"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'l',result:null}),      {initNum: 1,   initUnit: 'l'  ,returnNum:0.26417, returnUnit:"gal",string:"1 liters converts to 0.26417 galons"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'kg',result:null}),     {initNum: 1,   initUnit: 'kg' ,returnNum:2.20462, returnUnit:"lbs",string:"1 kilograms converts to 2.20462 pounds"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'km',result:null}),     {initNum: 1,   initUnit: 'km' ,returnNum:0.62137, returnUnit:"mi" ,string:"1 kilometers converts to 0.62137 miles"});
+      assert.deepEqual(server.calcOutput({initNum: 1.5, initUnit: 'gal',result:null}), {initNum: 1.5, initUnit: 'gal',returnNum:5.67812, returnUnit:"L"   ,string:"1.5 galons converts to 5.67812 liters"});
+      assert.deepEqual(server.calcOutput( {initNum: 2.5, initUnit: 'kg',result:null}),  {initNum: 2.5, initUnit: 'kg' ,returnNum:5.51156, returnUnit:"lbs",string:"2.5 kilograms converts to 5.51156 pounds"});
+      assert.deepEqual(server.calcOutput({initNum: 2, initUnit: 'km',result:null}),  {initNum: 2,   initUnit: 'km' ,returnNum:1.24275, returnUnit:"mi"    ,string:"2 kilometers converts to 1.24275 miles"});
         done();
       });
     });
