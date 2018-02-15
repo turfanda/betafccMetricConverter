@@ -64,12 +64,9 @@ const calcOutput = function(input) {
     let inVal = input.initNum;
     let inUnit = input.initUnit.toLowerCase();
     let outVal, outUnit;
-
-    console.log(units);
     switch (inUnit) {
         case "kg":
             outVal = inVal / 0.453592;
-            console.log(outVal);
             outUnit = "lbs"
             break;
         case "lbs":
@@ -109,3 +106,4 @@ var listener = app.listen(process.env.PORT, function() {
 
 module.exports.parseUnit = parseUnit;
 module.exports.calcOutput = calcOutput;
+module.exports.listener = listener;
