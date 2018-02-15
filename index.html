@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Metric Converter</title>
     <style>
-      body{
-      margin:40px;
-        text-align:center;
-      }
-    .formBox{
-    margin: auto;
-    width: 60%;
-    padding: 10px;
-      }
-      .def{
-      text-align:left;
+        body {
+            margin: 40px;
+            text-align: center;
+            background-color: lightgray;
+        }
+
+        .formBox {
             margin: auto;
-    width: 30%;
-    padding: 10px;
-      }
+            width: 60%;
+            padding: 10px;
+        }
+
+        .def {
+            text-align: left;
+            margin: auto;
+            width: 35%;
+            padding: 10px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>
-      Metric/Imperial Converter
+        Metric/Imperial Converter
     </h1>
     <h2>
-      Just insert value and unit then convert 
+        Just insert value and unit then convert
     </h2>
-    
+
     <div class="formBox">
         <form method="get" action="/api/convert">
             <input type="text" name="input" placeholder="10kg">
             <button type="Submit">Convert</button>
         </form>
-          </div>
-          <h3>
-        How To Use
-      </h3>
-    <div>
-<ul>
-  <li>It support gal-L,lbs-kg and mi-km convertion and vice versa</li>
-  <li>You should use mentioned units.Lowercase or uppercase doesnt matter</li>
-<li>You can use fractions, decimals or both in value (ie. 5, 1/2, 2.5/6)</li>
-  <li>if no value is provided it will default to 1</li>
-  <li>Result is json object that contains init value and output value</li>
-
-      </ul>
     </div>
 
-  </body>
+    <div class="def">
+        <h3 style="padding-left:40px; margin-bottom:1px;">
+            How To Use
+        </h3>
+        <ul style="margin-top:5px;">
+            <li>It support gal-L,lbs-kg and mi-km convertion and vice versa</li>
+            <li>You should use mentioned units.Lowercase or uppercase doesnt matter</li>
+            <li>You can use fractions, decimals or both in value (ie. 5, 1/2, 2.5/6)</li>
+            <li>if no value is provided it will default to 1</li>
+            <li>Result is json object that contains init value and output value</li>
+            <li>Also you can make api call like this
+                <ul>
+                    <li> /api/convert?input=4gal</li>
+                    <li>/api/convert?input=1/2km</li>
+                    <li>/api/convert?input=5.4/3lbs</li>
+                    <li>/api/convert?input=kg</li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
 </html>
