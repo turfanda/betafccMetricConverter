@@ -26,16 +26,15 @@ describe('Unit Test', function() {
         done();
       });
           it('should Pass', function(done) {
-      assert.deepEqual(server.calcOutput('gal'),    {initNum: 1,   initUnit: 'gal',outNum:3.78541, outUnit:"l"});
-      assert.deepEqual(server.calcOutput('lbs'),    {initNum: 1,   initUnit: 'lbs',outNum:0.45359, outUnit:"kg"});
-      assert.deepEqual(server.calcOutput('mi'),     {initNum: 1,   initUnit: 'mi' ,outNum:1.60934, outUnit:"km"});
-      assert.deepEqual(server.calcOutput('l'),      {initNum: 1,   initUnit: 'l'  ,outNum: outUnit:"gal"});
-      assert.deepEqual(server.calcOutput('kg'),     {initNum: 1,   initUnit: 'kg' ,outNum:2.20462, outUnit:"lbs"});
-      assert.deepEqual(server.calcOutput('km'),     {initNum: 1,   initUnit: 'km' ,outNum:0.62137, outUnit:"mi"});
-      assert.deepEqual(server.calcOutput('1.5gal'), {initNum: 1.5, initUnit: 'gal',outNum:5.67812, outUnit:"l"});
-      assert.deepEqual(server.calcOutput('1.5km'),  {initNum: 1.5, initUnit: 'km' ,outNum:0.93206, outUnit:"mi"});
-      assert.deepEqual(server.calcOutput('5/2kg'),  {initNum: 2.5, initUnit: 'kg' ,outNum:5.51156 outUnit:"lbs"});
-      assert.deepEqual(server.calcOutput('6/3km'),  {initNum: 2,   initUnit: 'km' ,outNum: outUnit:"mi"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'gal',result:null}),    {initNum: 1,   initUnit: 'gal',outNum:3.78541, outUnit:"L"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'lbs',result:null}),    {initNum: 1,   initUnit: 'lbs',outNum:0.45359, outUnit:"kg"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'mi',result:null}),     {initNum: 1,   initUnit: 'mi' ,outNum:1.60934, outUnit:"km"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'l',result:null}),      {initNum: 1,   initUnit: 'l'  ,outNum:0.26417, outUnit:"gal"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'kg',result:null}),     {initNum: 1,   initUnit: 'kg' ,outNum:2.20462, outUnit:"lbs"});
+      assert.deepEqual(server.calcOutput({initNum: 1, initUnit: 'km',result:null}),     {initNum: 1,   initUnit: 'km' ,outNum:0.62137, outUnit:"mi"});
+      assert.deepEqual(server.calcOutput({initNum: 1.5, initUnit: 'gal',result:null}), {initNum: 1.5, initUnit: 'gal',outNum:5.67812, outUnit:"L"});
+      assert.deepEqual(server.calcOutput( {initNum: 2.5, initUnit: 'kg',result:null}),  {initNum: 2.5, initUnit: 'kg' ,outNum:5.51156, outUnit:"lbs"});
+      assert.deepEqual(server.calcOutput({initNum: 2, initUnit: 'km',result:null}),  {initNum: 2,   initUnit: 'km' ,outNum:1.24275, outUnit:"mi"});
         done();
       });
     });

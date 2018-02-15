@@ -79,7 +79,7 @@ const calcOutput = function(input) {
             outVal = inVal * 3.78541;
             outUnit = "L"
             break;
-        case "L":
+        case "l":
             outVal = inVal / 3.78541;
             outUnit = "gal"
             break;
