@@ -5,26 +5,52 @@
     <style>
       body{
       margin:40px;
+        text-align:center;
       }
-    .form{
+    .formBox{
     margin: auto;
     width: 60%;
-    border: 3px solid #73AD21;
     padding: 10px;
-      text-aling:center !important;
       }
-      form input{
-        text-aling:center !important;
+      .def{
+      text-align:left;
+            margin: auto;
+    width: 30%;
+    padding: 10px;
       }
     </style>
   </head>
   <body>
-    <div class="form">
+    <h1>
+      Metric/Imperial Converter
+    </h1>
+    <h2>
+      Just insert value and unit then convert 
+    </h2>
+    
+    <div class="formBox">
         <form method="get" action="/api/convert">
             <input type="text" name="input" placeholder="10kg">
             <button type="Submit">Convert</button>
         </form>
           </div>
+          <h3>
+        How To Use
+      </h3>
+    <div>
+<ul>
+  <li>it support gal-L,lbs-kg and mi-km convertion and vice versa</li>
+  <li>you should you units mentioned in up</li>
+
+If my unit of measurement is invalid, returned will be 'invalid unit'.
+If my number is invalid, returned with will 'invalid number'.
+If both are invalid, return will be 'invalid number and unit'.
+I can use fractions, decimals or both in my parameter(ie. 5, 1/2, 2.5/6), but if nothing is provided it will default to 1.
+My return will consist of the initNum, initUnit, returnNum, returnUnit, and string spelling out units in format {initNum} {initial_Units} converts to {returnNum} {return_Units} with the result rounded to 5 decimals.
+All 16 unit tests are complete and passing.
+All 5 functional tests are complete and passing.
+      </ul>
+    </div>
 
   </body>
 </html>
